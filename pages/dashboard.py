@@ -64,12 +64,14 @@ st.plotly_chart(fig)
 
 st.markdown("This bar chart displays the **top 10 movies** from the dataset with the **Longest Runtime**.")
 
+# Scatter plot for IMDB Rating vs Meta score
 fig = px.scatter(df, x='IMDB_Rating', y='Meta_score', 
                  color='Meta_score',
                  color_continuous_scale="YLGnBu", 
                  title='IMDb Rating vs Meta Score')
 st.plotly_chart(fig)
 
+# Line plot for Released year vs IMDB Rating
 top_movies = df.nlargest(10,"IMDB_Rating")
 sns.lineplot(x='Released_Year', y='IMDB_Rating', data=top_movies, marker = "o", palette="Greens_r")
 plt.title("IMDB Rating vs Released Year")
@@ -79,7 +81,7 @@ st.markdown("This line plot visualizes the **IMDb ratings of the top 10 highest-
 #df['Gross'] = df['Gross'].str.extract('(\d+)').astype(float)
 df['Gross'] = df['Gross'].str.replace(',', '').str.replace('$', '').astype(float)
 
-# Bar plot for Gross Vs Director
+# histogram plot for Gross Vs Director
 
 top_movies = df.nlargest(10, "Gross")
 fig = px.histogram(top_movies, x='Gross' , y = "Director", color='Director',
@@ -88,3 +90,12 @@ fig = px.histogram(top_movies, x='Gross' , y = "Director", color='Director',
 st.plotly_chart(fig)
 
 st.markdown("This bar chart highlights the **directors of the top 10 highest-grossing movies** in the dataset.")
+
+# histogram plot for Genre vs No of votes
+fig =px.histogram(df, x = "Genre_Main", y = "No_of_Votes",color= "Genre_Main",
+            color_discrete_sequence=px.colors.qualitative.Plotly,
+            title= "Genre vs No of Votes")
+st.plotly_chart(fig)
+
+st.markdown("This bar chart displays the **Number of Votes** for each **Genre** in the dataset.")
+
