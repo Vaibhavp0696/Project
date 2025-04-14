@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.title("Welcome to my Dashboard")
+st.title("IMDB Movies Rating Analysis")
