@@ -99,3 +99,10 @@ st.plotly_chart(fig)
 
 st.markdown("This bar chart displays the **Number of Votes** for each **Genre** in the dataset.")
 
+fig = px.box(df, x = "Certificate", y = "Gross", color="Certificate",
+             color_discrete_sequence=px.colors.qualitative.Plotly,
+             title = "Certificate vs Gross")
+st.plotly_chart(fig)
+
+st.markdown("This box plot visualizes the **Gross Earnings** of movies based on their **Certificates**.")
+
