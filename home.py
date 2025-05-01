@@ -1,4 +1,4 @@
 import streamlit as st
 
 
-st.title("IMDB Movies Rating Analysis")
+st.title("IMDB Rating Analysis")
