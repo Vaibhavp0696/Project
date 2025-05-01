@@ -4,6 +4,7 @@ import seaborn as sns
 import plotly.express as px
 import matplotlib.pyplot as plt
 
+
 st.title("Dashboard")
 
 df = pd.read_csv("imdb_top_1000.csv")
